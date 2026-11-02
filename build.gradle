@@ -2,6 +2,7 @@ plugins {
     id 'antlr'
     id 'java-gradle-plugin'
     id 'com.gradle.plugin-publish' version '2.1.1'
+    id 'io.github.gradle-nexus.publish-plugin' version '2.0.0'
     id 'jacoco'
     id 'maven-publish'
     id 'signing'
@@ -23,6 +24,7 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
     withSourcesJar()
+    withJavadocJar()
 }
 
 repositories {
@@ -95,10 +97,27 @@ publishing {
     }
 }
 
+nexusPublishing {
+    repositories {
+        sonatype {
+            username = findProperty("mavenCentralUsername")
+            password = findProperty("mavenCentralPassword")
+            nexusUrl = uri("https://s01.oss.sonatype.org/service/local/")
+            snapshotRepositoryUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        }
+    }
+}
+
 signing {
     required = gradle.taskGraph.hasTask("publish")
     def signingKey = findProperty("signingKey")
     def signingPassword = findProperty("signingPassword")
+    def publishingToMavenCentral = gradle.startParameter.taskNames.any {
+        it.contains('publishToSonatype') || it.contains('publishMavenJavaPublicationToOSSRHRepository')
+    }
+    if (publishingToMavenCentral && !(signingKey && signingPassword)) {
+        throw new GradleException("Publishing to Maven Central requires signingKey and signingPassword Gradle properties.")
+    }
     if (signingKey && signingPassword) {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign publishing.publications.mavenJava

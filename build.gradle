@@ -44,8 +44,8 @@ dependencies {
 }
 
 gradlePlugin {
-    website = 'https://github.com/jurgenei/gradle-antlr-plugin'
-    vcsUrl = 'https://github.com/jurgenei/gradle-antlr-plugin.git'
+    website = 'https://github.com/flowdigger/gradle-antlr-plugin'
+    vcsUrl = 'https://github.com/flowdigger/gradle-antlr-plugin.git'
 
     plugins {
         antlrPlugin {
@@ -66,7 +66,7 @@ publishing {
             pom {
                 name = 'ANTLR Plugin'
                 description = 'Gradle plugin for ANTLR4 parser generation'
-                url = 'https://github.com/jurgenei/gradle-antlr-plugin'
+                url = 'https://github.com/flowdigger/gradle-antlr-plugin'
 
                 licenses {
                     license {
@@ -77,15 +77,15 @@ publishing {
 
                 developers {
                     developer {
-                        id = 'jurgenei'
-                        name = 'Jurgen Hildebrand'
+                        id = 'flowdigger'
+                        name = 'Flowdigger'
                     }
                 }
 
                 scm {
-                    connection = 'scm:git:https://github.com/jurgenei/gradle-antlr-plugin.git'
-                    developerConnection = 'scm:git:ssh://git@github.com/jurgenei/gradle-antlr-plugin.git'
-                    url = 'https://github.com/jurgenei/gradle-antlr-plugin'
+                    connection = 'scm:git:https://github.com/flowdigger/gradle-antlr-plugin.git'
+                    developerConnection = 'scm:git:ssh://git@github.com/flowdigger/gradle-antlr-plugin.git'
+                    url = 'https://github.com/flowdigger/gradle-antlr-plugin'
                 }
             }
         }
@@ -209,7 +209,10 @@ tasks.register('allSecurityChecks') {
     group = 'verification'
     description = 'Run all security and quality checks (Dependency-Check, SpotBugs, SonarQube)'
     dependsOn tasks.named('check')
-    dependsOn tasks.named('dependencyCheck')
+    def dependencyCheckTask = tasks.findByName('dependencyCheck') ?: tasks.findByName('dependencyCheckAnalyze')
+    if (dependencyCheckTask != null) {
+        dependsOn dependencyCheckTask
+    }
     dependsOn tasks.named('spotbugsMain')
 }
 

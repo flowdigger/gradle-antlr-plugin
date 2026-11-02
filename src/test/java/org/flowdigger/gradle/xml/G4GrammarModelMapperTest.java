@@ -70,4 +70,3 @@ public class G4GrammarModelMapperTest {
                 """;
     }
 }
-

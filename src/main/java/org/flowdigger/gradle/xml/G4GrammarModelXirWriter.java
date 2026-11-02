@@ -85,4 +85,3 @@ public final class G4GrammarModelXirWriter {
         return text.replace("\\", "\\\\").replace("\"", "\\\"");
     }
 }
-

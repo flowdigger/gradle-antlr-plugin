@@ -406,4 +406,3 @@ public final class G4GrammarModelMapper {
         return depth == 0;
     }
 }
-

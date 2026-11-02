@@ -12,7 +12,7 @@
 [![Checkstyle](https://github.com/jurgenei/gradle-antlr-plugin/actions/workflows/checkstyle.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-plugin/actions/workflows/checkstyle.yml)
 [![Dependabot](https://img.shields.io/badge/dependabot-enabled-025E8C?logo=dependabot)](https://github.com/jurgenei/gradle-antlr-plugin/security/dependabot)
 [![Coverage](https://codecov.io/gh/jurgenei/gradle-antlr-plugin/graph/badge.svg?branch=main)](https://codecov.io/gh/jurgenei/gradle-antlr-plugin)
-[![Maven Central](https://img.shields.io/maven-central/v/org.flowdigger/gradle-antlr-plugin.svg)](https://search.maven.org/artifact/org.flowdigger/gradle-antlr-plugin)
+[![Maven Central](https://img.shields.io/maven-central/v/org.flowdigger.gradle/gradle-antlr-plugin.svg)](https://search.maven.org/artifact/org.flowdigger.gradle/gradle-antlr-plugin)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Java](https://img.shields.io/badge/java-21+-green.svg)](https://www.oracle.com/java/)
 [![Gradle](https://img.shields.io/badge/gradle-9.5+-blue.svg)](https://gradle.org/)

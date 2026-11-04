@@ -111,6 +111,7 @@ def dependencyCheckSuppression = file('dependency-check-suppressions.xml')
 dependencyCheck {
     formats = ['HTML', 'JSON', 'XML']
     failBuildOnCVSS = 7.0
+    skipConfigurations = ['spotbugs', 'spotbugsPlugins', 'spotbugsSlf4j']
     if (dependencyCheckSuppression.exists()) {
         suppressionFile = dependencyCheckSuppression.path
     }

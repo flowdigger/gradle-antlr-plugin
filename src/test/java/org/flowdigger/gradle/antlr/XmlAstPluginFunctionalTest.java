@@ -26,7 +26,7 @@ public class XmlAstPluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
                 """);
 
@@ -42,7 +42,7 @@ public class XmlAstPluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
                 """);
 
@@ -62,7 +62,7 @@ public class XmlAstPluginFunctionalTest {
 
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 tasks.register('legacyXmlast', XmlAstTask) {
@@ -91,7 +91,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -156,7 +156,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -224,7 +224,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -289,7 +289,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -350,7 +350,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -411,7 +411,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -481,7 +481,7 @@ public class XmlAstPluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -584,7 +584,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {
@@ -653,7 +653,7 @@ public class XmlAstPluginFunctionalTest {
                 plugins {
                     id 'java'
                     id 'antlr'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 repositories {

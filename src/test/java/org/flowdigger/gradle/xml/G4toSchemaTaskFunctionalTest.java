@@ -26,7 +26,7 @@ public class G4toSchemaTaskFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 tasks.named('antlrG4ToSchema', org.flowdigger.gradle.xml.G4toSchemaTask) {
@@ -66,7 +66,7 @@ public class G4toSchemaTaskFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 tasks.named('antlrG4ToSchema', org.flowdigger.gradle.xml.G4toSchemaTask) {

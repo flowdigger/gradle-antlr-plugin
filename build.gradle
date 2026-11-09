@@ -68,7 +68,9 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+        }
 
+        withType(MavenPublication).configureEach {
             pom {
                 name = 'ANTLR Plugin'
                 description = 'Gradle plugin for ANTLR4 parser generation'
@@ -83,8 +85,9 @@ publishing {
 
                 developers {
                     developer {
-                        id = 'flowdigger'
-                        name = 'Flowdigger'
+                        id = 'jurgenei'
+                        name = 'Jurgen Hildebrand'
+                        email = 'ei@xs4all.nl'
                     }
                 }
 

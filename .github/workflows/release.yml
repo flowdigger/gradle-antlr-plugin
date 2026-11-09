@@ -18,7 +18,7 @@ jobs:
     with:
       trigger-event: ${{ github.event_name }}
       java-version: "21"
-      central-namespace: "org.flowdigger.gradle"
+      central-namespace: "org.flowdigger"
       clone-composite-build-deps: true
       upload-artifacts: true
       publish-snapshot-branches: true

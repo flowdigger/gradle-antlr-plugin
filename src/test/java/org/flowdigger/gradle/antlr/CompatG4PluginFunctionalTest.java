@@ -23,7 +23,7 @@ public class CompatG4PluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
                 """);
 
@@ -40,7 +40,7 @@ public class CompatG4PluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'org.flowdigger.gradle.antlr'
+                    id 'org.flowdigger.antlr'
                 }
 
                 tasks.register('printG4Defaults') {

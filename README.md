@@ -148,14 +148,16 @@ Run:
 Sample uses only:
 
 - `java`
-- `org.flowdigger.gradle.antlr`
+- `org.flowdigger.antlr`
+
+> Breaking change: plugin id was renamed from `org.flowdigger.gradle.antlr` to `org.flowdigger.antlr`.
 
 Parser/Lexer classes come from regular runtime dependency jar. No grammar-specific Gradle plugin required.
 
 ```groovy
 plugins {
     id 'java'
-    id 'org.flowdigger.gradle.antlr'
+    id 'org.flowdigger.antlr'
 }
 
 repositories {

@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "org.flowdigger.gradle"
-version = '1.0.2'
+version = '1.0.3'
 
 checkstyle {
     toolVersion = '10.26.1'
@@ -38,7 +38,7 @@ repositories {
 
 dependencies {
     implementation 'org.antlr:antlr4-runtime:4.13.1'
-    implementation 'org.flowdigger:xir-sax:1.0.0'
+    implementation 'org.flowdigger:xir-sax:1.0.1'
     implementation 'org.flowdigger:xir-g4:1.0.0'
 
     antlr 'org.antlr:antlr4:4.13.1'
@@ -55,7 +55,7 @@ gradlePlugin {
 
     plugins {
         antlrPlugin {
-            id = 'org.flowdigger.gradle.antlr'
+            id = 'org.flowdigger.antlr'
             implementationClass = 'org.flowdigger.gradle.antlr.XmlAstPlugin'
             displayName = 'Antlr XmlAst plugin'
             description = 'Converts source files to XML AST using pluggable ANTLR grammars, including ANTLRv4 task presets.'

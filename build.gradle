@@ -112,8 +112,15 @@ signing {
     }
 }
 
-tasks.named('publishMavenJavaPublicationToMavenLocal') {
-    dependsOn tasks.named('signPluginMavenPublication')
+if (providers.gradleProperty('signingKey').present && providers.gradleProperty('signingPassword').present) {
+    tasks.matching { it.name == 'publishMavenJavaPublicationToMavenLocal' }.configureEach {
+        dependsOn 'signMavenJavaPublication'
+    }
+
+    tasks.matching { it.name == 'publishPluginMavenPublicationToMavenLocal' }.configureEach {
+        dependsOn 'signMavenJavaPublication'
+        dependsOn 'signPluginMavenPublication'
+    }
 }
 
 // OWASP Dependency-Check configuration

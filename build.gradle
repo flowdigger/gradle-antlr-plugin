@@ -112,6 +112,10 @@ signing {
     }
 }
 
+tasks.named('publishMavenJavaPublicationToMavenLocal') {
+    dependsOn tasks.named('signPluginMavenPublication')
+}
+
 // OWASP Dependency-Check configuration
 def dependencyCheckSuppression = file('dependency-check-suppressions.xml')
 dependencyCheck {
@@ -236,17 +240,19 @@ def centralStagingRoot = layout.buildDirectory.dir('central-staging-repo')
 def stageCentralBundleRepo = tasks.register('stageCentralBundleRepo', Sync) {
     dependsOn tasks.named('publishToMavenLocal')
     into(centralStagingRoot)
+    def stagedPublicationPaths = [] as Set
 
     publishing.publications.withType(MavenPublication).all { publication ->
         def publicationPath = "${publication.groupId.replace('.', '/')}/${publication.artifactId}/${publication.version}"
-        from(file("${System.getProperty('user.home')}/.m2/repository/${publicationPath}")) {
-            into(publicationPath)
+        if (stagedPublicationPaths.add(publicationPath)) {
+            from(file("${System.getProperty('user.home')}/.m2/repository/${publicationPath}")) {
+                into(publicationPath)
+            }
         }
     }
 
     doFirst {
-        publishing.publications.withType(MavenPublication).each { publication ->
-            def publicationPath = "${publication.groupId.replace('.', '/')}/${publication.artifactId}/${publication.version}"
+        stagedPublicationPaths.each { publicationPath ->
             def localPublicationDir = file("${System.getProperty('user.home')}/.m2/repository/${publicationPath}")
             if (!localPublicationDir.exists()) {
                 throw new GradleException("Expected local Maven publication directory not found: ${localPublicationDir}")
